@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> AJAX </title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .footer,
+        .header {
+            background: gray;
+            color: text-white;
+            text-align: center;
+        }
+
+        .main-body {
+            width: 1040px;
+            height: 500px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1> AJAX </h1>
+    </div>
+    <div class="main-body" id="show-data">
+        <button onmouseout="load()"> Click Me </button>
+    </div>
+    <div class="footer">
+        <h2> Web developed by <a href="https://webnewsdesign.com"> webnewsdesign.com </a> </h2>
+    </div>
+
+    <script>
+
+        function load() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                document.getElementById("show-data").innerHTML = this.responseText;
+            }
+
+            xhttp.open("GET", 'info.txt');
+            xhttp.send();
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
